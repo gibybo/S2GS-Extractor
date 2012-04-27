@@ -10,15 +10,16 @@ namespace s2gsAutomationForms
         private Server() { }
         static Server()
         {
+            thisUS = new Server();
+            thisUS.url = urlTemplate.Replace("{server}", "US");
+            thisUS.name = "America";
+            thisUS.magic = new byte[] { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x55, 0x53 };
+
             thisEU = new Server();
             thisEU.url = urlTemplate.Replace("{server}", "EU");
             thisEU.name = "Europe";
             thisEU.magic = new byte[] { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x45, 0x55 };
 
-            thisUS = new Server();
-            thisUS.url = urlTemplate.Replace("{server}", "US");
-            thisUS.name = "America";
-            thisUS.magic = new byte[] { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x55, 0x53 };
         }
 
         static string urlTemplate = "http://{server}.depot.battle.net:1119/{hash}.s2gs";
