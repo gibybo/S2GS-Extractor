@@ -13,7 +13,7 @@ namespace s2gsAutomationForms
             thisEU = new Server();
             thisEU.url = urlTemplate.Replace("{server}", "EU");
             thisEU.name = "Europe";
-            thisEU.magic = new byte[] {};
+            thisEU.magic = new byte[] { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x45, 0x55 };
 
             thisUS = new Server();
             thisUS.url = urlTemplate.Replace("{server}", "US");
