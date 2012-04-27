@@ -10,14 +10,13 @@ namespace s2gsAutomationForms
 {
     class S2GSExtractor
     {
-        // Ascii: 's2gs  US'
-        static byte[] magicBfr = { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x55, 0x53 };
-
+        Server server;
 
         MemoryReader reader;
-        public S2GSExtractor()
+        public S2GSExtractor(Server _server)
         {
             reader = new MemoryReader();
+            server = _server;
         }
 
         public HashSet<String> extract()
@@ -40,7 +39,7 @@ namespace s2gsAutomationForms
                 int n = bytesRead - 8;
                 for (int i = 0; i < bytesRead; ++i)
                 {
-                    if ('s' == buffer[i] && isMagic(buffer, i))
+                    if ('s' == buffer[i] && isMagic(buffer, i, server.Magic))
                     {
                         totalCount += 1;
                         hashes.Add(BitConverter.ToString(buffer, i + 8, 32).ToLower().Replace("-", ""));
@@ -54,11 +53,11 @@ namespace s2gsAutomationForms
             return hashes;
         }
 
-        static bool isMagic(byte[] buffer, int i)
+        static bool isMagic(byte[] buffer, int i, byte[] magic)
         {
             for (int j = 0; j < 8; ++j)
             {
-                if (buffer[i + j] != magicBfr[j])
+                if (buffer[i + j] != magic[j])
                 {
                     return false;
                 }
