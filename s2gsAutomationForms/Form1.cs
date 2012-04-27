@@ -20,22 +20,23 @@ namespace s2gsAutomationForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            serverBox.Items.AddRange(Server.Servers);
+            serverBox.SelectedIndex = 0;
         }
 
         private void extractBtn_Click(object sender, EventArgs e)
         {
             SC2Macros.openMatchHistory(nameTxt.Text, codeTxt.Text);
 
-            S2GSExtractor extractor = new S2GSExtractor();
+            S2GSExtractor extractor = new S2GSExtractor((Server)serverBox.SelectedItem);
             HashSet<String> hashes = extractor.extract();
 
-            String results = "";
+            StringBuilder results = new StringBuilder();
             foreach (String hash in hashes) {
-                results += "http://us.depot.battle.net:1119/" + hash + ".s2gs\r\n\r\n";
+                results.AppendLine(((Server)serverBox.SelectedItem).Url.Replace("{hash}", hash));
             }
 
-            resultsTxt.Text = results;
+            resultsTxt.Text = results.ToString();
         }
     }
 }

@@ -35,11 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.resultsTxt = new System.Windows.Forms.TextBox();
+            this.serverBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // extractBtn
             // 
-            this.extractBtn.Location = new System.Drawing.Point(246, 22);
+            this.extractBtn.Location = new System.Drawing.Point(425, 22);
             this.extractBtn.Name = "extractBtn";
             this.extractBtn.Size = new System.Drawing.Size(75, 30);
             this.extractBtn.TabIndex = 0;
@@ -99,11 +101,31 @@
             this.resultsTxt.Size = new System.Drawing.Size(485, 502);
             this.resultsTxt.TabIndex = 7;
             // 
+            // serverBox
+            // 
+            this.serverBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.serverBox.FormattingEnabled = true;
+            this.serverBox.Location = new System.Drawing.Point(246, 23);
+            this.serverBox.Name = "serverBox";
+            this.serverBox.Size = new System.Drawing.Size(172, 32);
+            this.serverBox.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(246, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Server";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 585);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.serverBox);
             this.Controls.Add(this.resultsTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -128,6 +150,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox resultsTxt;
+        private System.Windows.Forms.ComboBox serverBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 
