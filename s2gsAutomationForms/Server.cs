@@ -62,7 +62,7 @@ namespace s2gsAutomationForms
         {
             get
             {
-                return new Server[] { EU, US };
+                return new Server[] { US, EU };
             }
         }
 
