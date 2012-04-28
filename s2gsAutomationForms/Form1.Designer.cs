@@ -41,7 +41,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tmpFileLink = new System.Windows.Forms.LinkLabel();
             this.hashesChkBox = new System.Windows.Forms.CheckBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // extractBtn
@@ -107,7 +111,7 @@
             this.resultsTxt.Multiline = true;
             this.resultsTxt.Name = "resultsTxt";
             this.resultsTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultsTxt.Size = new System.Drawing.Size(485, 448);
+            this.resultsTxt.Size = new System.Drawing.Size(485, 435);
             this.resultsTxt.TabIndex = 7;
             // 
             // serverBox
@@ -182,11 +186,35 @@
             this.hashesChkBox.Text = "Display hashes only";
             this.hashesChkBox.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLbl,
+            this.progressBar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 563);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(510, 22);
+            this.statusStrip1.TabIndex = 13;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLbl
+            // 
+            this.statusLbl.Name = "statusLbl";
+            this.statusLbl.Size = new System.Drawing.Size(39, 17);
+            this.statusLbl.Text = "Status";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 585);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tmpFileLink);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.resultsTxt);
@@ -196,6 +224,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +246,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel tmpFileLink;
         private System.Windows.Forms.CheckBox hashesChkBox;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLbl;
+        private System.Windows.Forms.ToolStripProgressBar progressBar;
     }
 }
 
