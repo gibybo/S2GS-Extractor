@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections;
 
@@ -19,6 +20,12 @@ namespace s2gsAutomationForms
             server = _server;
         }
 
+        public void AsyncExtract(Action<HashSet<string>> callback)
+        {
+            new Thread(new ThreadStart(delegate() {
+                callback(extract());
+            })).Start();
+        }
         public HashSet<String> extract()
         {
 
@@ -41,11 +48,11 @@ namespace s2gsAutomationForms
                 {
                     if ('s' == buffer[i] && isMagic(buffer, i, server.Magic))
                     {
-                        totalCount += 1;
+                        totalCount++;
                         hashes.Add(BitConverter.ToString(buffer, i + 8, 32).ToLower().Replace("-", ""));
                     }
                 }
-           }
+            }
 
             Console.WriteLine("Number of unique s2gs hash strings found: " + hashes.Count());
             Console.WriteLine("Number of total s2gs hash strings found: " + totalCount);

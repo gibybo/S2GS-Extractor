@@ -20,12 +20,23 @@ namespace s2gsAutomationForms
             thisEU.name = "Europe";
             thisEU.magic = new byte[] { 0x73, 0x32, 0x67, 0x73, 0x00, 0x00, 0x45, 0x55 };
 
+            thisKR = new Server();
+            thisKR.url = urlTemplate.Replace("{server}", "KR");
+            thisKR.name = "Korea";
+            thisKR.magic = new byte[] { };
+
+            thisSEA = new Server();
+            //thisSEA.url = urlTemplate.Replace("{server}", ""); //SEA.depot.battle.net:1119 isn't the right one.
+            thisSEA.name = "South-East Asia";
+            thisSEA.magic = new byte[] { };
         }
 
         static string urlTemplate = "http://{server}.depot.battle.net:1119/{hash}.s2gs";
 
         static Server thisEU;
         static Server thisUS;
+        static Server thisKR;
+        static Server thisSEA;
 
         string url;
         public string Url
@@ -55,6 +66,21 @@ namespace s2gsAutomationForms
             get
             {
                 return thisUS;
+            }
+        }
+        public static Server KR
+        {
+            get
+            {
+                return thisKR;
+            }
+        }
+        
+        public static Server SEA
+        {
+            get
+            {
+                return thisSEA;
             }
         }
 
